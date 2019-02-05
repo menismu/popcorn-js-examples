@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>PopcornJS : Wrapper Vimeo Example</title>
+</head>
+
+<body>
+	<div id="ourvideo"></div>
+	<div id="footnote"></div>
+
+	<script src="../resources/popcorn-complete.js"></script>
+	<script>
+		document.addEventListener("DOMContentLoaded", function() {
+
+			var wrapper = Popcorn.HTMLVimeoVideoElement("#ourvideo");
+			wrapper.src = "https://vimeo.com/49384334";
+			 
+			var popcorn = Popcorn(wrapper);
+ 
+    	popcorn.footnote({
+      	start: 1,
+      	end: 5,
+      	text: "Works with Vimeo!",
+      	target: "footnote"
+    	});
+
+			popcorn.volume(0).play();
+
+		}, false);
+	</script>
+</body>
+</html>
