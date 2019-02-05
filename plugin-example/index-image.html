@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>PopcornJS : Image Plugin Example</title>
+</head>
+
+<body>
+	<video id="ourvideo" controls width="640px" height="480">
+
+	    <source id="mp4"
+	      src="../resources/trailer.mp4"
+	      type='video/mp4; codecs="avc1, mp4a"'>
+	
+	    <source id="ogv"
+	      src="../resources/trailer.ogv"
+	      type='video/ogg; codecs="theora, vorbis"'>
+	
+	    <source id='webm'
+	      src="../resources/trailer.webm"
+	      type='video/webm; codecs="vp8, vorbis"'>
+	</video>
+	<div id="imagediv"></div>
+
+	<script src="../resources/popcorn.js"></script>
+	<script src="../resources/popcorn.image.js"></script>
+	<script>
+		document.addEventListener("DOMContentLoaded", function() {
+
+			var popcorn = Popcorn("#ourvideo")
+			.image({
+        start: 2,
+        end: 8,
+        href: "https://www.codespaceacademy.com/",
+        src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQz3uVYLXFkf6btu3Mm4P6yU2GRaKm4xdtiwZ5eiRy_hM_L-Xa7",
+        text: "Codespace Academy",
+        target: "imagediv"
+      })
+			.volume( 0 )
+			.play();
+			
+		}, false);
+	</script>
+</body>
+</html>
