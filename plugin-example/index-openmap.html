@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>PopcornJS : OpenMap Plugin Example</title>
+</head>
+
+<body>
+	<video id="ourvideo" controls width="640px" height="480">
+
+	    <source id="mp4"
+	      src="../resources/trailer.mp4"
+	      type='video/mp4; codecs="avc1, mp4a"'>
+	
+	    <source id="ogv"
+	      src="../resources/trailer.ogv"
+	      type='video/ogg; codecs="theora, vorbis"'>
+	
+	    <source id='webm'
+	      src="../resources/trailer.webm"
+	      type='video/webm; codecs="vp8, vorbis"'>
+	</video>
+	<div id="map" style="position:relative;float:left;width:300px;height:400px">
+
+	<script src="../resources/popcorn.js"></script>
+	<script src="../resources/popcorn.openmap.js"></script>
+	<script>
+		document.addEventListener("DOMContentLoaded", function() {
+
+			var popcorn = Popcorn("#ourvideo")
+			.openmap({
+		    start: 0,
+    		end: 10,
+    		type: "ROADMAP",
+    		target: "map",
+    		lat: 36.7177868,
+    		lng: -4.4338177,
+    		zoom: 18
+  		})
+			.volume( 0 )
+			.play();
+			
+		}, false);
+	</script>
+</body>
+</html>
