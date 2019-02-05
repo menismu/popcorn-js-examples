@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>PopcornJS : Events Example</title>
+</head>
+
+<body>
+	<video id="ourvideo" controls width="640px" height="480">
+
+	    <source id="mp4"
+	      src="../resources/trailer.mp4"
+	      type='video/mp4; codecs="avc1, mp4a"'>
+	
+	    <source id="ogv"
+	      src="../resources/trailer.ogv"
+	      type='video/ogg; codecs="theora, vorbis"'>
+	
+	    <source id='webm'
+	      src="../resources/trailer.webm"
+	      type='video/webm; codecs="vp8, vorbis"'>
+	</video>
+	<div id="footnote"></div>
+
+	<script src="../resources/popcorn-complete.js"></script>
+	<script>
+		document.addEventListener("DOMContentLoaded", function() {
+
+			// listening event with popcorn.on
+			var popcorn = Popcorn("#ourvideo");
+			popcorn.on("play", function() {
+				console.log("play fired!");
+			});
+
+			// listening event with addEventListener
+			var v = document.getElementById("ourvideo");
+			v.addEventListener("volumechange", function() {
+				console.log("volume change fired!");
+			}, false);
+
+			// play video
+			popcorn.volume(0).play();
+
+			// change video volume after seconds
+			setTimeout(function() {
+				v.volume = 0.5;
+			}, 2500 );
+
+		}, false);
+	</script>
+</body>
+</html>
