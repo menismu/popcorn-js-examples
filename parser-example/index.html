@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>PopcornJS : Parser Example</title>
+</head>
+
+<body>
+	<video id="ourvideo" controls width="640px" height="480">
+
+	    <source id="mp4"
+	      src="../resources/trailer.mp4"
+	      type='video/mp4; codecs="avc1, mp4a"'>
+	
+	    <source id="ogv"
+	      src="../resources/trailer.ogv"
+	      type='video/ogg; codecs="theora, vorbis"'>
+	
+	    <source id='webm'
+	      src="../resources/trailer.webm"
+	      type='video/webm; codecs="vp8, vorbis"'>
+	</video>
+	<div id="footnote"></div>
+
+	<script src="../resources/popcorn-complete.js"></script>
+	<script>
+		document.addEventListener("DOMContentLoaded", function() {
+
+			var popcorn = Popcorn("#ourvideo");
+			popcorn.parseJSON( "../resources/data.json", function() {
+				console.log( "JSON Parsed Successfully" );
+			});
+
+			popcorn.play().volume(0);
+
+		}, false);
+	</script>
+</body>
+</html>
